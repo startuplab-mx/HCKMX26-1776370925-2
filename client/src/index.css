@@ -1,0 +1,334 @@
+@import url('https://api.fontshare.com/v2/css?f[]=plus-jakarta-sans@300,400,500,600,700,800&f[]=chillax@400,500,600,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── RedFlag AI Teen Design System ────────────────────────────────────── */
+/* Palette: Deep navy/dark surfaces + electric cyan primary + vivid coral danger */
+/* Audience: teens 12-17, edu-tech, modern, trustworthy, NOT infantile */
+
+:root {
+  --font-sans: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  --font-serif: Georgia, serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Chart colors */
+  --chart-1: 186 100% 50%;
+  --chart-2: 258 85% 65%;
+  --chart-3: 38 95% 56%;
+  --chart-4: 152 69% 44%;
+  --chart-5: 4 90% 58%;
+
+  /* Sidebar (not used but required by template) */
+  --sidebar: 222 43% 12%;
+  --sidebar-foreground: 210 40% 90%;
+  --sidebar-border: 222 30% 20%;
+  --sidebar-ring: 186 100% 50%;
+  --sidebar-primary: 186 100% 50%;
+  --sidebar-primary-foreground: 222 47% 8%;
+  --sidebar-accent: 258 85% 65%;
+  --sidebar-accent-foreground: 210 40% 96%;
+
+  /* Border variants */
+  --card-border: 222 30% 22%;
+  --popover-border: 222 30% 22%;
+  --primary-border: hsl(186 100% 50% / 0.3);
+  --secondary-border: hsl(222 30% 30%);
+  --muted-border: hsl(222 30% 25%);
+  --accent-border: hsl(258 85% 65% / 0.3);
+  --destructive-border: hsl(4 90% 58% / 0.3);
+
+
+  /* Backgrounds */
+  --background: 222 47% 11%;
+  --foreground: 210 40% 96%;
+
+  /* Card / Surface */
+  --card: 222 43% 14%;
+  --card-foreground: 210 40% 96%;
+  --popover: 222 43% 14%;
+  --popover-foreground: 210 40% 96%;
+
+  /* Primary – electric cyan */
+  --primary: 186 100% 50%;
+  --primary-foreground: 222 47% 8%;
+
+  /* Secondary */
+  --secondary: 222 35% 20%;
+  --secondary-foreground: 210 40% 90%;
+
+  /* Muted */
+  --muted: 222 30% 18%;
+  --muted-foreground: 215 20% 55%;
+
+  /* Accent */
+  --accent: 258 85% 65%;
+  --accent-foreground: 210 40% 96%;
+
+  /* Destructive – vivid coral/red for danger flags */
+  --destructive: 4 90% 58%;
+  --destructive-foreground: 210 40% 96%;
+
+  /* Warning – amber */
+  --warning: 38 95% 56%;
+  --warning-foreground: 222 47% 8%;
+
+  /* Success – emerald */
+  --success: 152 69% 44%;
+  --success-foreground: 210 40% 96%;
+
+  /* Border / Input */
+  --border: 222 30% 22%;
+  --input: 222 35% 18%;
+  --ring: 186 100% 50%;
+
+  --radius: 0.75rem;
+
+  /* Custom semantic tokens */
+  --color-risk-high: hsl(4 90% 58%);
+  --color-risk-medium: hsl(38 95% 56%);
+  --color-risk-low: hsl(152 69% 44%);
+  --color-cyan: hsl(186 100% 50%);
+  --color-purple: hsl(258 85% 65%);
+  --glow-cyan: 0 0 24px hsl(186 100% 50% / 0.35);
+  --glow-red: 0 0 24px hsl(4 90% 58% / 0.4);
+  --glow-purple: 0 0 24px hsl(258 85% 65% / 0.35);
+}
+
+/* Dark mode is default — keep same values */
+.dark {
+  --background: 222 47% 11%;
+  --foreground: 210 40% 96%;
+  --card: 222 43% 14%;
+  --card-foreground: 210 40% 96%;
+  --popover: 222 43% 14%;
+  --popover-foreground: 210 40% 96%;
+  --primary: 186 100% 50%;
+  --primary-foreground: 222 47% 8%;
+  --secondary: 222 35% 20%;
+  --secondary-foreground: 210 40% 90%;
+  --muted: 222 30% 18%;
+  --muted-foreground: 215 20% 55%;
+  --accent: 258 85% 65%;
+  --accent-foreground: 210 40% 96%;
+  --destructive: 4 90% 58%;
+  --destructive-foreground: 210 40% 96%;
+  --border: 222 30% 22%;
+  --input: 222 35% 18%;
+  --ring: 186 100% 50%;
+}
+
+/* ─── Base Reset ─────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100dvh;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-size: 1rem;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  line-height: 1.6;
+}
+
+/* ─── Typography ─────────────────────────────────────────────────────────── */
+.font-display { font-family: 'Chillax', 'Plus Jakarta Sans', sans-serif; }
+h1, h2, h3, h4, h5, h6 { text-wrap: balance; line-height: 1.15; }
+p, li { text-wrap: pretty; }
+
+/* ─── Gradient utilities ──────────────────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, hsl(186 100% 60%), hsl(258 85% 75%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-danger {
+  background: linear-gradient(135deg, hsl(4 90% 65%), hsl(38 95% 60%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-bg-hero {
+  background: linear-gradient(135deg, hsl(222 55% 8%) 0%, hsl(240 50% 12%) 50%, hsl(222 55% 8%) 100%);
+}
+
+.gradient-card-cyan {
+  background: linear-gradient(135deg, hsl(186 100% 50% / 0.08), hsl(186 100% 50% / 0.02));
+  border: 1px solid hsl(186 100% 50% / 0.2);
+}
+
+.gradient-card-purple {
+  background: linear-gradient(135deg, hsl(258 85% 65% / 0.08), hsl(258 85% 65% / 0.02));
+  border: 1px solid hsl(258 85% 65% / 0.2);
+}
+
+.gradient-card-red {
+  background: linear-gradient(135deg, hsl(4 90% 58% / 0.08), hsl(4 90% 58% / 0.02));
+  border: 1px solid hsl(4 90% 58% / 0.2);
+}
+
+.gradient-card-amber {
+  background: linear-gradient(135deg, hsl(38 95% 56% / 0.08), hsl(38 95% 56% / 0.02));
+  border: 1px solid hsl(38 95% 56% / 0.2);
+}
+
+.gradient-card-green {
+  background: linear-gradient(135deg, hsl(152 69% 44% / 0.08), hsl(152 69% 44% / 0.02));
+  border: 1px solid hsl(152 69% 44% / 0.2);
+}
+
+/* ─── Glow effects ────────────────────────────────────────────────────────── */
+.glow-cyan { box-shadow: var(--glow-cyan); }
+.glow-red  { box-shadow: var(--glow-red); }
+.glow-purple { box-shadow: var(--glow-purple); }
+
+/* ─── Card surfaces ───────────────────────────────────────────────────────── */
+.card-surface {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+}
+
+/* ─── Dot grid background ─────────────────────────────────────────────────── */
+.dot-grid {
+  background-image: radial-gradient(hsl(210 40% 96% / 0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* ─── Chat bubble styles ──────────────────────────────────────────────────── */
+.chat-bubble-them {
+  background: hsl(222 35% 20%);
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.75rem 0.75rem 0.75rem 0.125rem;
+}
+
+.chat-bubble-you {
+  background: hsl(186 100% 50% / 0.15);
+  border: 1px solid hsl(186 100% 50% / 0.3);
+  border-radius: 0.75rem 0.75rem 0.125rem 0.75rem;
+}
+
+/* ─── Animated pulse ring ─────────────────────────────────────────────────── */
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.5; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+.pulse-ring::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  border: 2px solid currentColor;
+  animation: pulse-ring 1.5s ease-out infinite;
+}
+
+/* ─── Score ring ──────────────────────────────────────────────────────────── */
+.score-ring {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* ─── Badge risk ──────────────────────────────────────────────────────────── */
+.badge-risk-high { background: hsl(4 90% 58% / 0.15); color: hsl(4 90% 72%); border: 1px solid hsl(4 90% 58% / 0.3); }
+.badge-risk-medium { background: hsl(38 95% 56% / 0.15); color: hsl(38 95% 70%); border: 1px solid hsl(38 95% 56% / 0.3); }
+.badge-risk-low { background: hsl(152 69% 44% / 0.15); color: hsl(152 69% 60%); border: 1px solid hsl(152 69% 44% / 0.3); }
+
+/* ─── Animations ──────────────────────────────────────────────────────────── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes count-up {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-fade-up { animation: fade-up 0.5s ease both; }
+.animate-fade-in { animation: fade-in 0.4s ease both; }
+.animate-slide-right { animation: slide-in-right 0.4s ease both; }
+.animate-count-up { animation: count-up 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+
+/* Stagger delays */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+
+/* ─── Progress bar ────────────────────────────────────────────────────────── */
+.progress-bar-cyan {
+  background: linear-gradient(90deg, hsl(186 100% 40%), hsl(186 100% 60%));
+  box-shadow: 0 0 12px hsl(186 100% 50% / 0.5);
+}
+
+/* ─── Scrollbar styling ───────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: hsl(var(--background)); }
+::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: hsl(var(--muted-foreground)); }
+
+/* ─── Navigation ──────────────────────────────────────────────────────────── */
+.nav-item-active {
+  background: hsl(186 100% 50% / 0.1);
+  color: hsl(186 100% 55%);
+  border-left: 2px solid hsl(186 100% 50%);
+}
+
+/* ─── Simulation choice button ────────────────────────────────────────────── */
+.choice-btn {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.choice-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px hsl(186 100% 50% / 0.2);
+}
+.choice-btn:active { transform: translateY(0); }
+
+/* ─── Flag badge ──────────────────────────────────────────────────────────── */
+.flag-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
